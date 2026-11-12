@@ -48,8 +48,15 @@ struct ContentView: View {
         }
     }
     private func checkForWinner() {
+        checkLine(a: 0, b: 1, c: 2) // top row
         if moves[0] != "" && moves[0] == moves[1] && moves[1] == moves[2] {
             winMessage = "\(moves[0]) is the winner!"
+            gameOver = true
+        }
+    }
+    private func checkLine(a: Int, b: Int, c: Int) {
+        if moves[a] != "" && moves[a] == moves[b] && moves[b] == moves[c] {
+            winMessage = "\(moves[a]) is the winner!"
             gameOver = true
         }
     }
